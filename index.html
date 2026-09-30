@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Captura de Datos</title>
+</head>
+<body>
+
+  <h2>Captura de Datos</h2>
+
+  <form id="formulario" action="https://script.google.com/macros/s/AKfycbwe6sAVKkHI2OK7EfaeDp_vQQzPmqN8kaaodWApsBwU1DpxYyMx4km_GLwUOixlOoTY/exec" method="POST" target="hidden_iframe" onsubmit="enviado()">
+    <label for="nombre">Nombre:</label><br>
+    <input type="text" id="nombre" name="nombre" required><br><br>
+
+    <label for="curp">Ingresar CURP:</label><br>
+    <input type="text" id="curp" name="curp" required><br><br>
+
+    <label for="rfc">Ingresa RFC:</label><br>
+    <input type="text" id="rfc" name="rfc" required><br><br>
+
+    <label for="correo">Ingresa tu correo:</label><br>
+    <input type="text" id="correp" name="correo" required><br><br>
+    
+    <label for="numerodetelefono">Ingresa tu numero de telefono:</label><br>
+    <input type="text" id="numerodetelefono" name="numerodetelefono" required><br><br>
+
+    <label for="direccion">Ingresa tu direccion:</label><br>
+    <input type="text" id="direccion" name="direccion" required><br><br>
+    
+    <label for="edad">Edad:</label><br>
+    <input type="number" id="edad" name="edad" required min="1" max="120"><br><br>
+
+    <button type="submit" id="btnEnviar">Enviar</button>
+  </form>
+
+  <p id="estado"></p>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  <script>
+    function enviado() {
+      document.getElementById('btnEnviar').disabled = true;
+      document.getElementById('estado').textContent = 'Guardando...';
+      
+      setTimeout(function() {
+        document.getElementById('estado').textContent = '¡Registro guardado con éxito!';
+        document.getElementById('formulario').reset();
+        document.getElementById('btnEnviar').disabled = false;
+      }, 1500);
+    }
+  </script>
+
+</body>
+</html>
